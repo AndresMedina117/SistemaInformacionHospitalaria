@@ -5,3 +5,7 @@ OBX|2|NM|PTT||30,4||||||F
 OBX|3|NM|FIB||251||||||F
 PV1|1|I|Hospitalizacion|||||| Dra. Margarita Valencia|Cirujana||||||||
 DG1|1|||Apendicitis
+DG1|2|||
+DG1|3|||
+DG1|4|||
+DG1|5|||
