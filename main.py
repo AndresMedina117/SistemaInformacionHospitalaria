@@ -160,6 +160,19 @@ class InitialWindow(QMainWindow):
             '''
             self.textBrowser.setText(info_paciente) 
         
+    def asiActualizamos(self):
+        idBuscar = self.comboBox_3.currentText()
+        if idBuscar == '':
+            pass
+        else:
+            result = find(idBuscar)
+            info_paciente = f'''
+    Paciente: {result['nombre']} {result['apellido']} de genero {result['sexo']} y {result['edad']} años.
+    Medico: {result['médico']} especialista en {result['especialidad']}.
+    Fecha: {result['fecha'][0:4]}-{result['fecha'][4:6]}-{result['fecha'][6:8]}
+            '''
+            self.textBrowser.setText(info_paciente) 
+        
     def reader(self):
         self.stackedWidget.setCurrentIndex(0)
 
