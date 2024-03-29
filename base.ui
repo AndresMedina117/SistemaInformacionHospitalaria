@@ -27,135 +27,400 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>hospital.png</normaloff>hospital.png</iconset>
+    <normaloff>:/rc/hospital.png</normaloff>:/rc/hospital.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#MainWindow {
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0);
+}
+</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
   </property>
   <property name="documentMode">
    <bool>false</bool>
   </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>950</width>
-      <height>550</height>
-     </rect>
+   <property name="styleSheet">
+    <string notr="true">#centralwidget {
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0);
+}
+</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetNoConstraint</enum>
     </property>
-    <property name="minimumSize">
-     <size>
-      <width>950</width>
-      <height>550</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>950</width>
-      <height>550</height>
-     </size>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <property name="lineWidth">
-     <number>0</number>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8">
-     <property name="leftMargin">
-      <number>9</number>
-     </property>
-     <property name="topMargin">
-      <number>9</number>
-     </property>
-     <property name="rightMargin">
-      <number>9</number>
-     </property>
-     <property name="bottomMargin">
-      <number>9</number>
-     </property>
-     <item>
-      <widget class="QFrame" name="fTitulo">
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="minimumSize">
+       <size>
+        <width>950</width>
+        <height>550</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>950</width>
+        <height>550</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#frame{
+background-color: #4a6eb0;
+	border-color: rgb(0, 0, 0);
+border-style: double;
+border-radius: 14px;
+}
+
+#fAbajo, #fTitulo {
+	background-color: #0799b6;
+	border-radius: 10px;
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,10">
+       <property name="leftMargin">
+        <number>9</number>
        </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
+       <property name="topMargin">
+        <number>9</number>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QFrame" name="fAbajo">
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+       <property name="rightMargin">
+        <number>9</number>
        </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
+       <property name="bottomMargin">
+        <number>9</number>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,3,5">
-        <item>
-         <widget class="QFrame" name="frame_2">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+       <item>
+        <widget class="QFrame" name="fTitulo">
+         <property name="styleSheet">
+          <string notr="true">#salir, #salir_2 {
+	background-color: red;
+	border-radius:15px;
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>0</y>
+            <width>601</width>
+            <height>51</height>
+           </rect>
           </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
+          <property name="styleSheet">
+           <string notr="true">#label {
+	
+	font: 75 20pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string>SISTEMA DE INFORMACIÓN HOSPITALARIA (HIS)</string>
           </property>
          </widget>
-        </item>
-        <item>
-         <widget class="QFrame" name="frame_3">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+         <widget class="QPushButton" name="salir_2">
+          <property name="geometry">
+           <rect>
+            <x>890</x>
+            <y>10</y>
+            <width>31</width>
+            <height>31</height>
+           </rect>
           </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
+          <property name="text">
+           <string>X</string>
           </property>
          </widget>
-        </item>
-        <item>
-         <widget class="QFrame" name="frame_4">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+         <widget class="QLabel" name="label_5">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>10</y>
+            <width>31</width>
+            <height>31</height>
+           </rect>
           </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
+          <property name="text">
+           <string/>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QStackedWidget" name="stackedWidget">
-             <property name="currentIndex">
-              <number>2</number>
+          <property name="pixmap">
+           <pixmap>imgs/hospital.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="fAbajo">
+         <property name="styleSheet">
+          <string notr="true">#frame_2, #frame_3, #frame_4, #stackedWidget {
+	border-radius: 10px 10px 5px 5px;
+	border-color: rgb(0, 0, 0);
+	background-color: #9cd2d3;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0">
+          <item>
+           <widget class="QFrame" name="frame_4">
+            <property name="styleSheet">
+             <string notr="true">#frame_2, #frame_3{
+	background-color:#D4E7EE;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,6">
+             <property name="leftMargin">
+              <number>9</number>
              </property>
-             <widget class="QWidget" name="page"/>
-             <widget class="QWidget" name="page_3"/>
-             <widget class="QWidget" name="page_2"/>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>9</number>
+             </property>
+             <property name="bottomMargin">
+              <number>9</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="frame_2">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,0,0" columnstretch="1,1">
+                <item row="2" column="1">
+                 <widget class="QPushButton" name="acBoton">
+                  <property name="text">
+                   <string>Actualizar</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>imgs/actualizar-flecha.png</normaloff>imgs/actualizar-flecha.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QPushButton" name="eBoton">
+                  <property name="text">
+                   <string>Eliminar</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>imgs/eliminar.png</normaloff>imgs/eliminar.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QPushButton" name="bBoton">
+                  <property name="text">
+                   <string>Buscar</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>imgs/buscar.png</normaloff>imgs/buscar.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QPushButton" name="aBoton">
+                  <property name="text">
+                   <string>Añadir</string>
+                  </property>
+                  <property name="icon">
+                   <iconset>
+                    <normaloff>imgs/anadir.png</normaloff>imgs/anadir.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_3">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <widget class="QStackedWidget" name="stackedWidget">
+                  <property name="currentIndex">
+                   <number>2</number>
+                  </property>
+                  <widget class="QWidget" name="buscar">
+                   <widget class="QLabel" name="label_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>10</x>
+                      <y>10</y>
+                      <width>181</width>
+                      <height>20</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">#label_2{
+	text-align:center;
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Plain</enum>
+                    </property>
+                    <property name="text">
+                     <string>Id del paciente a buscar: </string>
+                    </property>
+                   </widget>
+                   <widget class="QLineEdit" name="idBuscar">
+                    <property name="geometry">
+                     <rect>
+                      <x>190</x>
+                      <y>10</y>
+                      <width>671</width>
+                      <height>20</height>
+                     </rect>
+                    </property>
+                   </widget>
+                   <widget class="QTableView" name="tableView">
+                    <property name="geometry">
+                     <rect>
+                      <x>10</x>
+                      <y>40</y>
+                      <width>851</width>
+                      <height>271</height>
+                     </rect>
+                    </property>
+                   </widget>
+                  </widget>
+                  <widget class="QWidget" name="eliminar">
+                   <widget class="QLabel" name="label_3">
+                    <property name="geometry">
+                     <rect>
+                      <x>10</x>
+                      <y>10</y>
+                      <width>191</width>
+                      <height>20</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">#label_3{
+	text-align:center;
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Plain</enum>
+                    </property>
+                    <property name="text">
+                     <string>Id del paciente a eliminar: </string>
+                    </property>
+                   </widget>
+                   <widget class="QLineEdit" name="idEliminar">
+                    <property name="geometry">
+                     <rect>
+                      <x>200</x>
+                      <y>10</y>
+                      <width>661</width>
+                      <height>20</height>
+                     </rect>
+                    </property>
+                   </widget>
+                  </widget>
+                  <widget class="QWidget" name="actualizar">
+                   <widget class="QLabel" name="label_4">
+                    <property name="geometry">
+                     <rect>
+                      <x>10</x>
+                      <y>10</y>
+                      <width>201</width>
+                      <height>20</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">#label_4{
+	text-align:center;
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Plain</enum>
+                    </property>
+                    <property name="text">
+                     <string>Id del paciente a actualizar:</string>
+                    </property>
+                   </widget>
+                   <widget class="QLineEdit" name="idActualizar">
+                    <property name="geometry">
+                     <rect>
+                      <x>210</x>
+                      <y>10</y>
+                      <width>651</width>
+                      <height>20</height>
+                     </rect>
+                    </property>
+                   </widget>
+                  </widget>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

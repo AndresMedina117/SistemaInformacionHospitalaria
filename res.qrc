@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="res">
+    <file>imgs/abrir-documento.png</file>
+    <file>imgs/actualizar-flecha.png</file>
+    <file>imgs/anadir.png</file>
+    <file>imgs/buscar.png</file>
+    <file>imgs/eliminar.png</file>
+    <file>imgs/hospital.png</file>
+  </qresource>
+</RCC>
