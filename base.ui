@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>:/rc/hospital.png</normaloff>:/rc/hospital.png</iconset>
+    <normaloff>imgs/hospital.png</normaloff>imgs/hospital.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">#MainWindow {
@@ -110,11 +110,20 @@ border-radius: 14px;
        <item>
         <widget class="QFrame" name="fTitulo">
          <property name="styleSheet">
-          <string notr="true">#salir, #salir_2 {
-	background-color: red;
-	border-radius:15px;
-	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-}</string>
+          <string notr="true">#salir_2, #minimizar {
+	border-radius: 15px;
+	background-color: white;
+	font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+}
+
+#salir_2:hover {
+	background-color : red;
+}
+
+#minimizar:hover {
+	background-color : #ADD8E6;
+}
+</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -125,7 +134,7 @@ border-radius: 14px;
          <widget class="QLabel" name="label">
           <property name="geometry">
            <rect>
-            <x>170</x>
+            <x>140</x>
             <y>0</y>
             <width>601</width>
             <height>51</height>
@@ -171,6 +180,19 @@ border-radius: 14px;
           </property>
           <property name="scaledContents">
            <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="minimizar">
+          <property name="geometry">
+           <rect>
+            <x>850</x>
+            <y>10</y>
+            <width>31</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>_</string>
           </property>
          </widget>
         </widget>
@@ -288,7 +310,7 @@ border-radius: 14px;
                 <item>
                  <widget class="QStackedWidget" name="stackedWidget">
                   <property name="currentIndex">
-                   <number>2</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="buscar">
                    <widget class="QLabel" name="label_2">
@@ -313,23 +335,23 @@ border-radius: 14px;
                      <string>Id del paciente a buscar: </string>
                     </property>
                    </widget>
-                   <widget class="QLineEdit" name="idBuscar">
+                   <widget class="QComboBox" name="comboBox_3">
                     <property name="geometry">
                      <rect>
                       <x>190</x>
                       <y>10</y>
                       <width>671</width>
-                      <height>20</height>
+                      <height>22</height>
                      </rect>
                     </property>
                    </widget>
-                   <widget class="QTableView" name="tableView">
+                   <widget class="QTextBrowser" name="textBrowser">
                     <property name="geometry">
                      <rect>
                       <x>10</x>
-                      <y>40</y>
+                      <y>41</y>
                       <width>851</width>
-                      <height>271</height>
+                      <height>291</height>
                      </rect>
                     </property>
                    </widget>
@@ -357,13 +379,43 @@ border-radius: 14px;
                      <string>Id del paciente a eliminar: </string>
                     </property>
                    </widget>
-                   <widget class="QLineEdit" name="idEliminar">
+                   <widget class="QComboBox" name="comboBox_2">
                     <property name="geometry">
                      <rect>
                       <x>200</x>
                       <y>10</y>
-                      <width>661</width>
-                      <height>20</height>
+                      <width>660</width>
+                      <height>25</height>
+                     </rect>
+                    </property>
+                   </widget>
+                   <widget class="QPushButton" name="confirm">
+                    <property name="geometry">
+                     <rect>
+                      <x>384</x>
+                      <y>40</y>
+                      <width>110</width>
+                      <height>30</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>Eliminar</string>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>imgs/eliminar.png</normaloff>imgs/eliminar.png</iconset>
+                    </property>
+                   </widget>
+                   <widget class="QLineEdit" name="deletedd">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="geometry">
+                     <rect>
+                      <x>10</x>
+                      <y>80</y>
+                      <width>851</width>
+                      <height>25</height>
                      </rect>
                     </property>
                    </widget>
@@ -391,13 +443,13 @@ border-radius: 14px;
                      <string>Id del paciente a actualizar:</string>
                     </property>
                    </widget>
-                   <widget class="QLineEdit" name="idActualizar">
+                   <widget class="QComboBox" name="comboBox">
                     <property name="geometry">
                      <rect>
                       <x>210</x>
                       <y>10</y>
                       <width>651</width>
-                      <height>20</height>
+                      <height>22</height>
                      </rect>
                     </property>
                    </widget>
