@@ -73,7 +73,7 @@ def extraer_info_csv(nombre_archivo):
         # Asignar el diccionario 'examenes' como un valor en el diccionario principal bajo la clave 'examenes'
         paciente['examen'] = examenes
         # Asignar la lista de comorbilidades al diccionario principal bajo la clave 'comorbilidades'
-        paciente['comorbilidades'] = comorbilidades
+        paciente['Comorbilidades'] = comorbilidades
         pacientes.append(paciente)
     
     return pacientes
@@ -139,7 +139,7 @@ def info2HL7(info_paciente,nombreArchivo):
     hl7_msg.append(dg1_segment)
 
     # Segmento DG1 (Comorbilidades)
-    comorbilidades = info_paciente.get('Comorbilidades', [])
+    comorbilidades = info_paciente.get('comorbilidades', [])
     for idx, comorbilidad in enumerate(comorbilidades, start=2):
         dg1_segment = f"DG1|{idx}|||{comorbilidad}"
         hl7_msg.append(dg1_segment)
@@ -166,38 +166,30 @@ def info2HL7(info_paciente,nombreArchivo):
 def infoTXT2HL7(nombreArchivo):
     info = extraer_info_serial(nombreArchivo)
 
-extraer_info_csv('paciente2.csv')
-
-"""Una vez hecho el codigo que saca la informacion de cada archivo de forma ordenada y estandarizada: En una lista que contiene uno o varios diccionarios dentro, ello depende de si hay uno o varios pacientes dentro de un mismo archivo.
-Se procede entonces a escanear de nuevo la carpeta donde esta la informacion, y dependiendo de la extencion de cada archivo se le aplicará uno de las funciones anteiormente creadas y se subirá la informacion a MONGO ATLAS
-"""
-
-# from pymongo import MongoClient
 import pymongo
 
 hce = pymongo.MongoClient("mongodb+srv://andros2017unisinu:andros172129@cluster0.dkrxuwh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = hce.patients
-#"mongodb+srv://andros2017unisinu:andros172129@cluster0.dkrxuwh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-"""PARA ENVIAR TODOS LOS DATOS A LA BASE DE DATOS, EN CASO DE QUE ALGUNO DE LOS PACIENTES YA SE ENCUENTRE REGISTRADO, LA FUNCION RETORNARÁ UN STRING INFORMADO TAL COSA Y EL PACIENTE QUE FUE DENEGADO"""
 
-def create():
+def create(path):
     # Obtener la lista de archivos en la carpeta
     error=''
     # Ruta de la carpeta
-    ruta_carpeta = './pacientes/'
+    ruta_carpeta = path
     archivos = os.listdir(ruta_carpeta)
     # Clasificar los archivos por tipo
     for archivo in archivos:
         nombre, extension = os.path.splitext(archivo)
         if extension == '.txt':
-            info = extraer_info_serial(archivo)
-            for paciente in info:
+            #info = extraer_info_serial(archivo)
+            #for paciente in info:
                 #print(paciente)
-                if db.patients.find_one({"id" : {"$eq":paciente['id']}}) is None:
-                    db.patients.insert_one(paciente)
-                else:
-                    error=error+'\n Ya hay un paciente con la id: '+paciente['id']
+            #    if db.patients.find_one({"id" : {"$eq":paciente['id']}}) is None:
+            #        db.patients.insert_one(paciente)
+            #    else:
+            #        error=error+'\n Ya hay un paciente con la id: '+paciente['id']
+            pass
         elif extension == '.json':
             info=extraer_info_json(archivo)
             for paciente in info:
@@ -216,31 +208,17 @@ def create():
                     error=error+' \n Ya hay un paciente con la id: '+paciente['id']
     return error
 
-print(create())
-
-"""AHORA, PARA BUSCAR DATOS EN LA BASE DE DATOS:
-
-"Para el caso de la opción Buscar (Read), el algoritmo deberá mostrar la información en
-pantalla, pero también crear un archivo de texto (.txt) que se guardará en una carpeta data,
-dicho archivo tendrá una estructura HL7."
-Siendo así, entonces:
-"""
-
-
-
+def findAll():
+    return [i['id'] for i in db.patients.find()]
 
 def find(id):
     result = [i for i in db.patients.find({"id": {"$eq": id}})]
     if not result:
         return "No se ha encontrado el ID"
-    
     else:
         C=info2HL7(result[0],id)
     print(C[1])
     return result
-find("1122334455")
-
-"""PARA ACTUALIZAR DATOS:"""
 
 def update(id, valores_actualizados):
     # Crear un diccionario con los valores a actualizar
@@ -255,17 +233,26 @@ def update(id, valores_actualizados):
     else:
         print(f"No se encontró ningún documento con ID {id} para actualizar.")
 
-update('1234567890',{"nombre": "¨Piter Parker", "sexo": "no pero ojala", "edad":"antes de cristo"})
-
-"""PARA ELIMINAR ELEMENTOS"""
-
-def delete(id):
+def eliminador(id):
     resultado = db.patients.delete_one({"id": id})
     if resultado.deleted_count == 1:
         return f"Se eliminó correctamente el documento con ID {id}."
     else:
         return f"No se encontró ningún documento con ID {id} para eliminar."
 
-# Ejemplo de uso:
-delete('1122334455')
-
+def updateDB(id, nombre, apellidos, edad, medico, ips, diagnostico, fecha, comorbilidades, examenes):
+    update_data = {
+        "$set": {
+            "nombre": nombre,
+            "apellido": apellidos,
+            "edad": edad,
+            "médico": medico,
+            "ips": ips,
+            "dx": diagnostico,
+            "fecha": fecha,
+            "Comorbilidades": comorbilidades,
+            "examen": examenes
+        }
+    }
+    result= db.patients.update_one({"id": id}, update_data)
+    return result

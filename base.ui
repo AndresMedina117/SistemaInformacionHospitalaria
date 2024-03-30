@@ -448,7 +448,7 @@ border-radius: 14px;
                      <rect>
                       <x>210</x>
                       <y>10</y>
-                      <width>651</width>
+                      <width>521</width>
                       <height>22</height>
                      </rect>
                     </property>
@@ -458,19 +458,199 @@ border-radius: 14px;
                      <rect>
                       <x>10</x>
                       <y>40</y>
-                      <width>851</width>
-                      <height>291</height>
+                      <width>855</width>
+                      <height>295</height>
                      </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>855</width>
+                      <height>295</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>855</width>
+                      <height>295</height>
+                     </size>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">#frame_5{border-radius: 10px;
-border-color: blue;}</string>
+border-color: blue;
+
+background-color: rgb(255, 255, 255);}
+
+#comorb, #info, #exam {
+border-radius: 10px;
+background-color: #D4E7EE;
+}
+
+.QTextEdit{
+	border-radius:10px;
+}</string>
                     </property>
                     <property name="frameShape">
                      <enum>QFrame::StyledPanel</enum>
                     </property>
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,1">
+                     <item>
+                      <widget class="QFrame" name="info">
+                       <property name="styleSheet">
+                        <string notr="true">.QLabel, .QLineEdit{
+	font: 6pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_4">
+                        <item>
+                         <widget class="QLabel" name="label_6">
+                          <property name="text">
+                           <string>Información básica</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_7">
+                          <property name="text">
+                           <string>Nombre</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="nombre">
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_8">
+                          <property name="text">
+                           <string>Apellidos</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="apellidos"/>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_9">
+                          <property name="text">
+                           <string>Edad</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="edad"/>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_10">
+                          <property name="text">
+                           <string>Médico</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="medico"/>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_11">
+                          <property name="text">
+                           <string>IPS</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="ips"/>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_12">
+                          <property name="text">
+                           <string>Diagnóstico</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLineEdit" name="diagnostico"/>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_13">
+                          <property name="text">
+                           <string>Fecha</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QDateEdit" name="fecha"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="exam">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_5">
+                        <item>
+                         <widget class="QLabel" name="label_14">
+                          <property name="text">
+                           <string>Resultados de examenes</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="examte"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="comorb">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_6">
+                        <item>
+                         <widget class="QLabel" name="label_15">
+                          <property name="text">
+                           <string>Comorbilidades</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="combte"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QPushButton" name="updaterr">
+                    <property name="geometry">
+                     <rect>
+                      <x>740</x>
+                      <y>10</y>
+                      <width>121</width>
+                      <height>23</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>Confirmar Cambios</string>
                     </property>
                    </widget>
                   </widget>

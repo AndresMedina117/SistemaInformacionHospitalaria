@@ -233,3 +233,20 @@ def eliminador(id):
         return f"Se eliminó correctamente el documento con ID {id}."
     else:
         return f"No se encontró ningún documento con ID {id} para eliminar."
+    
+def updateDB(id, nombre, apellidos, edad, medico, ips, diagnostico, fecha, comorbilidades, examenes):
+    update_data = {
+        "$set": {
+            "nombre": nombre,
+            "apellido": apellidos,
+            "edad": edad,
+            "médico": medico,
+            "ips": ips,
+            "dx": diagnostico,
+            "fecha": fecha,
+            "Comorbilidades": comorbilidades,
+            "examen": examenes
+        }
+    }
+    result= db.patients.update_one({"id": id}, update_data)
+    return result
