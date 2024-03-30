@@ -310,7 +310,7 @@ border-radius: 14px;
                 <item>
                  <widget class="QStackedWidget" name="stackedWidget">
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="buscar">
                    <widget class="QLabel" name="label_2">
@@ -451,6 +451,26 @@ border-radius: 14px;
                       <width>651</width>
                       <height>22</height>
                      </rect>
+                    </property>
+                   </widget>
+                   <widget class="QFrame" name="frame_5">
+                    <property name="geometry">
+                     <rect>
+                      <x>10</x>
+                      <y>40</y>
+                      <width>851</width>
+                      <height>291</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">#frame_5{border-radius: 10px;
+border-color: blue;}</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
                     </property>
                    </widget>
                   </widget>
