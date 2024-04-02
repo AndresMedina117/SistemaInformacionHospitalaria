@@ -61,7 +61,7 @@ border-radius:10px;}</string>
     </rect>
    </property>
    <property name="text">
-    <string>BUSCAR ARCHIVO</string>
+    <string>BUSCAR CARPETA</string>
    </property>
    <property name="icon">
     <iconset>

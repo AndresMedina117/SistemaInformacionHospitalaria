@@ -98,6 +98,8 @@ def extraer_info_serial(nombre_archivo):
     text1 = text[4].split('|')
     id, edad, nombre, apellidos, genero = text1[2],text1[4].split('^')[3],text1[12],text1[13],text1[27]
     fechaHora = text[0].split('|')[13]
+    fecha = fechaHora[:12]
+    print(fechaHora)
     genero = genero.split('\n')[0]
     if genero == "M":
         genero = "Masculino"
@@ -106,10 +108,9 @@ def extraer_info_serial(nombre_archivo):
     linesOfData = [i.split('|') for i in text[6:] if fechaHora in i.split('|')]
     dic_f = {}
     data = [['{}-{}'.format(i[2].split('^')[3], i[2].split('^')[4]), i[3]] for i in linesOfData]
-    dic_final = {'id': id, 'edad': edad, 'nombre': nombre, 'apellidos': apellidos, 'genero': genero}
     for j in data:
         dic_f[j[0]] = j[1]
-    dic_final = {'id': id, 'edad': edad, 'nombre': nombre, 'apellidos': apellidos, 'genero': genero, 'data':dic_f}
+    dic_final = {'id': id, 'edad': edad, 'nombre': nombre, 'apellido': apellidos, 'sexo': genero, 'fecha': fecha, 'examen':dic_f, 'dx':[], 'equipo':'', 'serial':'', 'ips':'', 'modelo':'','ingreso':'','médico':'','especialidad':'','Comorbilidades':''}
 
     return [dic_final]
 
@@ -182,13 +183,13 @@ def create(path):
     for archivo in archivos:
         nombre, extension = os.path.splitext(archivo)
         if extension == '.txt':
-            #info = extraer_info_serial(archivo)
-            #for paciente in info:
-                #print(paciente)
-            #    if db.patients.find_one({"id" : {"$eq":paciente['id']}}) is None:
-            #        db.patients.insert_one(paciente)
-            #    else:
-            #        error=error+'\n Ya hay un paciente con la id: '+paciente['id']
+            info = extraer_info_serial(archivo)
+            for paciente in info:
+                print(paciente)
+                if db.patients.find_one({"id" : {"$eq":paciente['id']}}) is None:
+                    db.patients.insert_one(paciente)
+                else:
+                    error=error+'\n Ya hay un paciente con la id: '+paciente['id']
             pass
         elif extension == '.json':
             info=extraer_info_json(archivo)
