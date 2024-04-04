@@ -46,6 +46,18 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="minimumSize">
+    <size>
+     <width>950</width>
+     <height>550</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>950</width>
+     <height>550</height>
+    </size>
+   </property>
    <property name="styleSheet">
     <string notr="true">#centralwidget {
 	border-radius: 15px;
