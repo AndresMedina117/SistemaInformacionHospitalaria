@@ -177,8 +177,9 @@ class InitialWindow(QMainWindow):
     Diagnóstico: {result['dx']}
     
     Examenes:\n'''
+
             for key in result['examen']:
-                info_paciente+=f'   - {key}: {result['examen'][key]}\n'
+                info_paciente += f'   - {key}: {result["examen"][key]}\n'
             info_paciente+='\n  Comorbilidades:\n'
             for comorbilidad in result['Comorbilidades']:
                 info_paciente+=f'   - {comorbilidad}\n'
@@ -198,7 +199,7 @@ class InitialWindow(QMainWindow):
             self.fecha.setDate(dateNew)
             text=''
             for key in result['examen']:
-                text+=f'-   {key}: {result['examen'][key]}\n'
+                text += f'-   {key}: {result["examen"][key]}\n'
             text+='\n\nPara añadir un nuevo resultado de examen, por favor ingresarlas con un guión (-) al inicio'
             self.examte.setText(text)
             text = ''
