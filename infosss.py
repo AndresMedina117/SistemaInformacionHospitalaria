@@ -175,14 +175,16 @@ def create(path):
     error=''
     # Ruta de la carpeta
     ruta_carpeta = path
+    ruta_carpeta+='\\'
     archivos = os.listdir(ruta_carpeta)
     # Clasificar los archivos por tipo
     for archivo in archivos:
+        #print(archivo)
         nombre, extension = os.path.splitext(archivo)
         if extension == '.txt':
             info = extraer_info_serial(ruta_carpeta, archivo)
             for paciente in info:
-                print(paciente)
+                #print(paciente)
                 if db.patients.find_one({"id" : {"$eq":paciente['id']}}) is None:
                     db.patients.insert_one(paciente)
                 else:
