@@ -36,10 +36,9 @@ def detectar_delimitador(archivo):
         dialecto = csv.Sniffer().sniff(f.read(1024))  # Analizar solo una porción del archivo
         return dialecto.delimiter
 
-def extraer_info_csv(nombre_archivo):
+def extraer_info_csv(ruta_carpeta, nombre_archivo):
     pacientes = []
     # Ruta de la carpeta
-    ruta_carpeta = './pacientes/'
     info_pacientes_csv = []
     ruta = ruta_carpeta + nombre_archivo
     delimitador = detectar_delimitador(ruta)
@@ -79,9 +78,8 @@ def extraer_info_csv(nombre_archivo):
     return pacientes
 
 #AHORA PARA LA INFO DE LOS JASON
-def extraer_info_json(nombre_archivo):
+def extraer_info_json(ruta_carpeta, nombre_archivo):
     # Ruta de la carpeta
-    ruta_carpeta = './pacientes/'
     ruta = ruta_carpeta + nombre_archivo
     with open(ruta, encoding='utf-8') as file:
         data = json.load(file)
@@ -89,9 +87,8 @@ def extraer_info_json(nombre_archivo):
         data = [unidecode(item) if isinstance(item, str) else item for item in data]
     return data
 
-def extraer_info_serial(nombre_archivo):
+def extraer_info_serial(ruta_carpeta, nombre_archivo):
     # Ruta de la carpeta
-    ruta_carpeta = './pacientes/'
     ruta = ruta_carpeta + nombre_archivo
     with open(ruta, encoding='utf8') as file:
         text = file.readlines()
@@ -183,7 +180,7 @@ def create(path):
     for archivo in archivos:
         nombre, extension = os.path.splitext(archivo)
         if extension == '.txt':
-            info = extraer_info_serial(archivo)
+            info = extraer_info_serial(ruta_carpeta, archivo)
             for paciente in info:
                 print(paciente)
                 if db.patients.find_one({"id" : {"$eq":paciente['id']}}) is None:
@@ -192,7 +189,7 @@ def create(path):
                     error=error+'\n Ya hay un paciente con la id: '+paciente['id']
             pass
         elif extension == '.json':
-            info=extraer_info_json(archivo)
+            info=extraer_info_json(ruta_carpeta, archivo)
             for paciente in info:
                 #print(paciente)
                 if db.patients.find_one({"id" : {"$eq":paciente['id']}}) is None:
@@ -200,7 +197,7 @@ def create(path):
                 else:
                     error=error+'\n Ya hay un paciente con la id: '+paciente['id']
         elif extension == '.csv':
-            info=extraer_info_csv(archivo)
+            info=extraer_info_csv(ruta_carpeta, archivo)
             for paciente in info:
                 #print(paciente)
                 if db.patients.find_one({"id" : {"$eq":paciente['id']}}) is None:
