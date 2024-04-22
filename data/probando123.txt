@@ -1,7 +1,0 @@
-MSH|^~\&|HITACHI 9000|H758RFG8965S| Clinica IPS| RH9000|202402020035||ORU^R01|1122334455|P|2.4
-PID||1122334455|||Juan Camilo^Machado||45| Masculino|||||||||||||||||||
-OBX|1|NM|proc_tp||10,2||||||F
-OBX|1|NM|proc_ptt||30,4||||||F
-OBX|1|NM|proc_fib||251||||||F
-PV1|1|I|Hospitalizacion|||||| Dra. Margarita Valencia|Cirujana||||||||
-DG1|1|||Apendicitis

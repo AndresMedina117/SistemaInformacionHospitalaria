@@ -1,9 +1,7 @@
-MSH|^~\&|Cobas 8000|RC2587SRL2020|ClÃ­nica Siempre Viva|RC8000|202402271910||ORU^R01|1234567890|P|2.4
-PID||1234567890|||Pedro Pablo^PÃ©rez Perea||23|Masculino|||||||||||||||||||
+MSH|^~\&|Cobas 8000|RC2587SRL2020|Clínica Siempre Viva|RC8000|202402271910||ORU^R01|1234567890|P|2.4
+PID||1234567890|||Pedro Pablo^Pérez Perea||23|Masculino|||||||||||||||||||
 OBX|1|NM|HDL||70||||||F
 OBX|1|NM|LDL||50||||||F
 OBX|1|NM|TRIG||110||||||F
-PV1|1|I|Ambulatorio||||||Dr. Jose Obdulio|NutriciÃ³n||||||||
+PV1|1|I|Ambulatorio||||||Dr. Jose Obdulio|Nutrición||||||||
 DG1|1|||Esguince de rodilla
-DG1|2|||Diabete Tipo I
-DG1|3|||Hipertiroidismo
